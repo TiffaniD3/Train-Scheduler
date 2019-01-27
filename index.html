@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="icon" type="png" href="assets/images/icon.png">
-    <title>Train Tracker</title>
-    <link href="https://fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <div class="jumbotron jumbotron-fluid">
-        <h1 class="display-4" id="mainHeader">Train Tracker</h1>
-        <h2 class="lead" id="sub-text">Keeping You on Track</h2>
-        <p class="pull-right" id="currentTime"></p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="icon" type="png" href="assets/images/icon.png">
+  <title>Train Tracker</title>
+  <link href="https://fonts.googleapis.com/css?family=Michroma" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+</head>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-9">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Train Schedule</h3>
-            </div>
-            <div class="card-body">
-              <table class="tables" id="train-table">
-                <thead>
-                  <tr>
-                    <th>Train #</th>
-                    <th>Destination</th>
-                    <th class="text-center">Frequency</th>
-                    <th class="text-center">Next Arrival</th>
-                    <th class="text-center">Minutes Away</th>
-                    <th class="text-center">Remove</th>
-                  </tr>
-                </thead>
-                <tbody id="train-table-rows"></tbody>
-              </table>
-            </div>
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+      <h1 class="display-4 text-center" id="mainHeader">Train Tracker</h1>
+      <h2 class="text-center">Keeping You on Track</h2>
+      <p class="ml-auto" id="currentTime"></p>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-9">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Train Schedule</h3>
+          </div>
+          <div class="card-body">
+            <table class="table" id="train-table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Train Line</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col" class="recurrence">Frequency</th>
+                  <th scope="col" class="eta">Next Arrival</th>
+                  <th scope="col" class="text-center">Minutes Away</th>
+                  <th scope="col" class="text-center">Remove</th>
+                </tr>
+              </thead >
+              <tbody id="trainTbody">
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-3">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Add New Train</h3>
-              <div>
-                <div class="card-body">
-                  <form>
-                    <div class="form-group">
-                      <label>Train #</label>
-                      <input type="text" class="form-control formBox" id="trainName"/>
-                    </div>
+      <div class="col-xs-12 col-sm-3">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Add New Train</h3>
+            <div>
+              <div class="card-body">
+                <form>
+                  <div class="form-group">
+                    <label>Train Line</label>
+                    <input type="text" class="form-control formBox" id="trainLine" />
+                  </div>
 
-                    <div class="form-group">
-                      <label>Destination</label>
-                      <input type="text" class="form-control formBox" id="destination"/>
-                    </div>
+                  <div class="form-group">
+                    <label>Destination</label>
+                    <input type="text" class="form-control formBox" id="destination" />
+                  </div>
 
-                    <div class="form-group">
-                      <label>Departure</label>
-                      <input type="text" class="form-control formBox" id="firstTrain"/>
-                    </div>
+                  <div class="form-group">
+                    <label>Departure</label>
+                    <input type="text" class="form-control formBox" id="firstTrain" />
+                  </div>
 
-                    <div class="form-group">
-                      <label>Frequency</label>
-                      <input type="text" class="form-control formBox" id="frequency"/>
-                    </div>
+                  <div class="form-group">
+                    <label>Frequency</label>
+                    <input type="text" class="form-control formBox" id="frequency" />
+                  </div>
 
-                    <button type="submit" class="btn btn-default" id="userSubmit">
-                        Add Train
-                    </button>
-                  </form>
-                </div>
+                  <button type="submit" class="btn btn-dark" id="userSubmit">
+                    Add Train
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
-    <script type="text/javascript" src="assets/javascript/logic.js"></script>
-  </body>
+  <script type="text/javascript" src="assets/javascript/logic.js"></script>
+</body>
+
 </html>
